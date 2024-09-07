@@ -1,16 +1,31 @@
 title: "Emre Batu Atakan Personal Website"
+author:
+  name: Emre Batu Atakan
+  email: e.batuatakan@gmail.com
+
 description: >
   Emre Batu Atakan - Personal Website
 
-# baseurl: "/my-github-pages-site" # Replace with your repo name
-url: "https://EmreBatuAtakan.github.io"
-
-markdown: kramdown
 theme: minima
 
-social:
-  github: "https://github.com/EmreBatuAtakan"
-  linkedin: "https://www.linkedin.com/in/emre-batu-atakan-937887244/"
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+header_pages:
+  - home.md
+
+minima: 
+  skin: classic
+
+  # baseurl: "/my-github-pages-site" # Replace with your repo name
+  # url: "https://EmreBatuAtakan.github.io"
+
+  # markdown: kramdown
+
+  social_links:
+    - { platform: github, user_url: "https://github.com/EmreBatuAtakan" }
+    - { platform: linkedin, user_url: "https://www.linkedin.com/in/emre-batu-atakan-937887244/" }
 
 exclude:
   - Gemfile
