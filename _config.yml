@@ -8,6 +8,10 @@ url: "https://EmreBatuAtakan.github.io"
 markdown: kramdown
 theme: minima
 
+social:
+  github: "https://github.com/EmreBatuAtakan"
+  linkedin: "https://www.linkedin.com/in/emre-batu-atakan-937887244/"
+
 exclude:
   - Gemfile
   - Gemfile.lock
