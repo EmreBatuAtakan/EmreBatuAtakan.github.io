@@ -13,7 +13,7 @@ plugins:
   - jekyll-seo-tag
 
 header_pages:
-  - home.md
+  - index.md
 
 minima: 
   skin: classic
