@@ -1,2 +1,16 @@
-theme: jekyll-theme-so-simple
 title: "Emre Batu Atakan Personal Website"
+description: >
+  This is an example GitHub Pages site using Jekyll for local development.
+
+# Set the baseurl to the repository name (important for GitHub Pages)
+# baseurl: "/my-github-pages-site" # Replace with your repo name
+url: "https://EmreBatuAtakan.github.io"
+
+# Other configurations
+markdown: kramdown
+theme: minima
+
+# Exclude unnecessary files from being processed
+exclude:
+  - Gemfile
+  - Gemfile.lock
