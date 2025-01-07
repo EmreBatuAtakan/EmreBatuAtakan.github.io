@@ -2,6 +2,26 @@
   "minima/skins/{{ site.minima.skin | default: 'classic' }}",
   "minima/initialize";
 
+
+/* Custom styles for Slider section */
+.slider {
+    margin: 20px auto; /* Center the slider container */
+    max-width: 90%; /* Adjust the maximum width */
+}
+
+.slider img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease; /* Smooth zoom effect */
+}
+
+.slick-center img {
+    transform: scale(1.1); /* Zoom in the center slide */
+    z-index: 1; /* Make the center slide stand out */
+}
+
 /* Custom styles for CV section */
 #cv {
     margin: 20px 0;
