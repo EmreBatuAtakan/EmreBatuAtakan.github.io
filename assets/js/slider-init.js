@@ -1,4 +1,7 @@
 $(document).ready(function(){
+    console.log('jQuery version:', $.fn.jquery); // Logs the loaded jQuery version
+    console.log('Slick Slider:', typeof $('.slider').slick); // Checks if slick is defined
+
     $('.slider').slick({
         centerMode: true, // Enables center mode
         centerPadding: '40px', // Space on the sides of the center slide

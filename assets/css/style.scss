@@ -17,10 +17,23 @@
     transition: transform 0.3s ease; /* Smooth zoom effect */
 }
 
+.slick-slide {
+    transition: transform 0.3s ease-in-out;
+}
+
 .slick-center img {
     transform: scale(1.1); /* Zoom in the center slide */
     z-index: 1; /* Make the center slide stand out */
 }
+
+.slick-dots {
+    bottom: -30px;
+}
+
+.slick-prev, .slick-next {
+    z-index: 10;
+}
+
 
 /* Custom styles for CV section */
 #cv {
