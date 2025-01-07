@@ -1,4 +1,4 @@
-$(document).ready(function(){
+$(document).on('ready', function(){
     console.log('jQuery version:', $.fn.jquery); // Logs the loaded jQuery version
     console.log('Slick Slider:', typeof $('.slider').slick); // Checks if slick is defined
 
