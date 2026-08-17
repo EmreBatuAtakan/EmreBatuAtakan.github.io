@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Emre Batu Atakan</title>
+<meta name="description" content="Emre Batu Atakan. Computer Science at the University of Waterloo. Software engineering intern at Shopify, robotics research, machine learning.">
+<meta name="author" content="Emre Batu Atakan">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Emre Batu Atakan">
+<meta property="og:description" content="Computer Science at the University of Waterloo. Software engineering intern at Shopify, robotics research, machine learning.">
+<meta property="og:url" content="https://emrebatuatakan.github.io/">
+
+<link rel="canonical" href="https://emrebatuatakan.github.io/">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+
+<link rel="stylesheet" href="assets/css/site.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' font-family='system-ui'>B</text></svg>">
+
+<script>
+  // Applied before first paint so the page never flashes the wrong theme.
+  (function () {
+    try {
+      var saved = localStorage.getItem('theme');
+      if (saved === 'light' || saved === 'dark') {
+        document.documentElement.setAttribute('data-theme', saved);
+      }
+    } catch (e) {}
+  })();
+</script>
+</head>
+
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="topbar-name" href="#top">Emre Batu Atakan</a>
+    <nav class="topbar-nav" aria-label="Sections">
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#leadership">Leadership</a>
+      <a href="#education">Education</a>
+      <a href="#skills">Skills</a>
+      <a href="#resume">Resume</a>
+    </nav>
+    <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Switch theme">
+      <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.4v2.6M12 19v2.6M4.6 4.6l1.9 1.9M17.5 17.5l1.9 1.9M2.4 12h2.6M19 12h2.6M4.6 19.4l1.9-1.9M17.5 6.5l1.9-1.9"/></svg>
+      <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14.2A8.6 8.6 0 0 1 9.8 3.5a8.6 8.6 0 1 0 10.7 10.7z"/></svg>
+    </button>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero" id="top">
+    <p class="eyebrow">Waterloo, Ontario</p>
+    <h1>Emre Batu Atakan</h1>
+    <p class="lede">
+      Computer Science student at the University of Waterloo. I work on machine learning
+      systems and the data infrastructure around them. Most recently a distributed shop
+      analysis pipeline at Shopify, and visuomotor robot policies with a research team
+      on campus.
+    </p>
+    <div class="hero-links">
+      <a href="mailto:e.batuatakan@gmail.com">Email</a>
+      <a href="https://github.com/EmreBatuAtakan" rel="me noopener" target="_blank">GitHub</a>
+      <a href="https://www.linkedin.com/in/emre-batu-atakan-937887244/" rel="me noopener" target="_blank">LinkedIn</a>
+      <a class="hero-cta" href="assets/cv/Emre-Batu-Atakan-Resume.pdf" download>Download resume</a>
+    </div>
+  </section>
+
+  <section class="section" id="experience">
+    <h2 class="section-title">Experience</h2>
+
+    <article class="entry">
+      <div class="entry-head">
+        <h3 class="entry-title">Shopify Inc. <span class="entry-role">Software Engineering Intern</span></h3>
+        <p class="entry-meta">Toronto, Winter 2026</p>
+      </div>
+
+      <div class="workstream">
+        <h4 class="sub-title">Automated Shop Analysis Pipeline</h4>
+        <p class="sub-lede">
+          A distributed pipeline that analyzes and scores e-commerce shops for fraud, deception,
+          and business legitimacy to make the platform more secure for users.
+        </p>
+        <ul class="bullets">
+          <li>Built the full pipeline prototype from scratch: it reads shops from BigQuery, uses dbt to identify new and stale shops needing analysis, distributes processing through Apache Flink with a custom Java UDF calling a FastAPI ML service, and writes results back to BigQuery. An Airflow DAG orchestrates daily automated runs across <strong>800K+ shops</strong>, with <strong>100K+ shops</strong> processed on daily incremental runs.</li>
+          <li>Ported the prototype to the Shopify monorepo, implementing three AI subagents (fraud detection, business profiling, merchant classification), an orchestrator with parallel execution, and <strong>129 unit tests</strong>.</li>
+          <li>Developed an async HTTP pre-filter using aiohttp with <strong>500 concurrent requests</strong> to skip inaccessible URLs before model processing, reducing wasted GPU compute on blocked or unreachable sites.</li>
+          <li>Built benchmarking infrastructure tracking throughput, success rates, and P50/P95/P99 latency metrics, then used it to optimize concurrency settings across pipeline stages.</li>
+        </ul>
+      </div>
+
+      <div class="workstream">
+        <h4 class="sub-title">AI Slackbot Evaluation Framework and Analytics Dashboard</h4>
+        <ul class="bullets">
+          <li>Designed and built an A/B testing framework for comparing AI Slackbot skill configurations side by side. It runs the same prompts against different configurations, scores them with LLM judges and deterministic assertions, and publishes structured results to a BigQuery schema for full reproducibility.</li>
+          <li>Built an analytics dashboard visualizing Slackbot usage data from BigQuery, including deep link filtering, keyboard navigation, insights with leaderboards, GitHub-style activity heatmaps, and pattern analytics covering time-of-day activity, tool error clustering, and channel leaderboards.</li>
+          <li>Fixed critical auth and publishing issues blocking evals from running inside production containers, which unblocked the team to run evals directly in production-like environments.</li>
+        </ul>
+      </div>
+
+      <p class="stack"><span class="stack-label">Stack</span> Python, Java, Apache Flink, dbt, BigQuery, Airflow, FastAPI, aiohttp</p>
+    </article>
+
+    <article class="entry">
+      <div class="entry-head">
+        <h3 class="entry-title">University of Waterloo <span class="entry-role">Robotics Research</span></h3>
+        <p class="entry-meta">June 2026 to present</p>
+      </div>
+      <p class="sub-lede">
+        Leading an 8-person research team developing end-to-end visuomotor policies, mentored by
+        Generalist's Research Scientist.
+      </p>
+      <ul class="bullets">
+        <li>Designed and executed controlled experiments comparing DINOv3-Transformer, CNN/MLP, and pretrained ConvNeXt behavior-cloning policies, analyzing the gap between offline training loss and closed-loop task performance.</li>
+        <li>Identified that the larger Transformer policy was memorizing demonstrations and generalizing poorly, which motivated a smaller CNN/MLP policy that improved randomized pick-and-place success from approximately <strong>30% to 99.8%</strong>.</li>
+        <li>Validated the selected policy over <strong>2,000+ randomized closed-loop rollouts</strong> during a multi-hour live demonstration, observing only <strong>four failures</strong> and confirming readiness for hardware deployment.</li>
+        <li>Ran hyperparameter sweeps over observation windows, action-history lengths, action-chunk horizons, auxiliary localization losses, dataset variants, and random seeds. Tracked experiments in W&amp;B and evaluated checkpoints on identical seeded rollouts.</li>
+        <li>Integrated trained checkpoints into the asynchronous inference loop and tested interactions between model latency, observation sampling, replanning, and 100 Hz command execution on commodity hardware.</li>
+        <li>Operated parallel data-collection jobs and curated 13 hours of synchronized pick-and-place demonstrations. Launched and monitored SLURM training and evaluation workloads on Digital Research Alliance of Canada A100/H100 systems.</li>
+      </ul>
+      <p class="stack"><span class="stack-label">Stack</span> PyTorch, ROS, W&amp;B, SLURM, A100/H100</p>
+    </article>
+
+    <article class="entry">
+      <div class="entry-head">
+        <h3 class="entry-title">Thresh Power <span class="entry-role">Software Development Intern</span></h3>
+        <p class="entry-meta">San Francisco, Summer 2024</p>
+      </div>
+      <p class="sub-lede">
+        Thresh Power is a San Francisco startup that streamlines M&amp;A processes using machine learning.
+      </p>
+      <ul class="bullets">
+        <li>Built and deployed a Python microservice on GCP that uses the OpenAI Assistant API to generate due diligence reports on user-provided files, with separate staging and production environments for safer testing.</li>
+        <li>Shipped a streaming file downloading feature as a React component with a corresponding Python API, and implemented 100% unit test coverage for the API. The feature is used by customers every day.</li>
+        <li>Worked on OpenAI API integration for document summarization and Q&amp;A, developed benchmarks to compare large language model performance, and built full-stack product features.</li>
+        <li>Evaluated Ragas and various metrics as a means of understanding the performance impact of different prompting strategies, and documented findings and criticisms of different methodologies.</li>
+      </ul>
+      <p class="stack"><span class="stack-label">Stack</span> Python, React, GCP, OpenAI API, Ragas</p>
+    </article>
+  </section>
+
+  <section class="section" id="projects">
+    <h2 class="section-title">Projects</h2>
+
+    <article class="entry">
+      <div class="entry-head">
+        <h3 class="entry-title">Pufferfish <span class="entry-role">Chess engine and bot</span></h3>
+        <p class="entry-meta">2025 to 2026</p>
+      </div>
+      <ul class="bullets">
+        <li>Combines a PyTorch-trained NNUE evaluation network with iterative-deepening alpha-beta search, quiescence search, transposition tables, move ordering heuristics, and time-managed decision logic.</li>
+        <li>Developed the full pipeline from FEN feature encoding and large-scale training workflows to FastAPI-based inference integration for ChessHacks, with Modal-powered GPU training.</li>
+        <li>Built a parallel C++ engine prototype for search and runtime optimization.</li>
+        <li>Placed <strong>3rd at ChessHacks Waterloo 2025</strong>.</li>
+      </ul>
+      <p class="stack"><span class="stack-label">Stack</span> PyTorch, C++, FastAPI, Modal</p>
+    </article>
+
+    <article class="entry">
+      <div class="entry-head">
+        <h3 class="entry-title">Speech to Phonemes <span class="entry-role">Dataset and training pipeline</span></h3>
+        <p class="entry-meta">Summer 2025</p>
+      </div>
+      <ul class="bullets">
+        <li>Created a custom 120-hour dataset of high-quality sound-to-phoneme labels and integrated it with the dataloader's dataset mixing.</li>
+        <li>
+          Implemented an optimized multi-process pipeline in Python:
+          <ul class="bullets nested">
+            <li>Batch GPU inference on Whisper to localize word timestamps, optimizing GPU utilization by using a dataloader and pinned memory.</li>
+            <li>Used the OpenAI API with multithreading to build phonemes for out-of-vocabulary words, expanding CMUDict by adding 4,000 new word phonemes.</li>
+            <li>Implemented a dynamic programming algorithm to optimize for the best word-to-phoneme alignment globally.</li>
+          </ul>
+        </li>
+        <li>Ran A100 training jobs on the new dataset and configured hyperparameters accordingly.</li>
+      </ul>
+      <p class="stack"><span class="stack-label">Stack</span> Python, Whisper, OpenAI API, A100</p>
+    </article>
+  </section>
+
+  <section class="section" id="leadership">
+    <h2 class="section-title">Leadership</h2>
+
+    <article class="entry">
+      <div class="entry-head">
+        <h3 class="entry-title">RedFox 10247 <span class="entry-role">FRC Team Captain</span></h3>
+        <p class="entry-meta">2025</p>
+      </div>
+      <ul class="bullets">
+        <li>Co-founded the team, led 26 members, and raised <strong>$10,000+</strong> in sponsorships.</li>
+        <li>Trained 23 newcomers through custom robot-control simulations and hands-on workshops in Java, electronics, and mechanical design.</li>
+        <li>Placed 11th at regionals and captained Alliance 7 as a rookie team.</li>
+      </ul>
+    </article>
+
+    <article class="entry">
+      <div class="entry-head">
+        <h3 class="entry-title">The Chaotics 8795 <span class="entry-role">FRC Team Captain</span></h3>
+        <p class="entry-meta">2023 to 2024</p>
+      </div>
+      <ul class="bullets">
+        <li>Led 122 members across robotics and public relations, and raised <strong>$10,000+</strong>.</li>
+        <li>Built out a CNC-equipped workshop from an unused school basement.</li>
+      </ul>
+    </article>
+
+    <h3 class="gallery-title">From the shop floor</h3>
+    <div class="gallery" id="gallery">
+      <button class="shot" type="button"><img src="assets/images/frc/frc2022robot1.jpg" alt="FRC 2022 robot, front view" loading="lazy"></button>
+      <button class="shot" type="button"><img src="assets/images/frc/frc2022robot2.jpg" alt="FRC 2022 robot, second view" loading="lazy"></button>
+      <button class="shot" type="button"><img src="assets/images/frc/frc2022team.jpg" alt="The 2022 team" loading="lazy"></button>
+      <button class="shot" type="button"><img src="assets/images/frc/frc2023coding.jpg" alt="Coding during the 2023 build season" loading="lazy"></button>
+      <button class="shot" type="button"><img src="assets/images/frc/frc2023offseason1.jpg" alt="2023 offseason work" loading="lazy"></button>
+      <button class="shot" type="button"><img src="assets/images/frc/frc2023offseason2.jpg" alt="2023 offseason work" loading="lazy"></button>
+      <button class="shot" type="button"><img src="assets/images/frc/frc2023offseason3.jpg" alt="2023 offseason work" loading="lazy"></button>
+      <button class="shot" type="button"><img src="assets/images/frc/frc2023summerworkshop1.jpg" alt="2023 summer workshop" loading="lazy"></button>
+      <button class="shot" type="button"><img src="assets/images/frc/frc2023summerworkshop2.jpg" alt="2023 summer workshop" loading="lazy"></button>
+      <button class="shot" type="button"><img src="assets/images/frc/frc2023summerworkshop3.jpg" alt="2023 summer workshop" loading="lazy"></button>
+      <button class="shot" type="button"><img src="assets/images/frc/frc2023team1.jpg" alt="The 2023 team" loading="lazy"></button>
+      <button class="shot" type="button"><img src="assets/images/frc/frc2023team2.jpg" alt="The 2023 team" loading="lazy"></button>
+      <button class="shot" type="button"><img src="assets/images/frc/frc2023workshop1.jpg" alt="2023 workshop session" loading="lazy"></button>
+      <button class="shot" type="button"><img src="assets/images/frc/frc2023workshop2.jpg" alt="2023 workshop session" loading="lazy"></button>
+      <button class="shot" type="button"><img src="assets/images/frc/frc2023workshop3.jpg" alt="2023 workshop session" loading="lazy"></button>
+      <button class="shot" type="button"><img src="assets/images/frc/frc2024.jpg" alt="FRC 2024 season" loading="lazy"></button>
+    </div>
+  </section>
+
+  <section class="section" id="education">
+    <h2 class="section-title">Education and Awards</h2>
+
+    <article class="entry">
+      <div class="entry-head">
+        <h3 class="entry-title">University of Waterloo</h3>
+        <p class="entry-meta">2025 to 2030</p>
+      </div>
+      <p class="sub-lede">
+        Bachelor of Mathematics in Computer Science (Honours) with Co-op.
+        Waterloo, Ontario, Canada.
+      </p>
+      <ul class="bullets">
+        <li><strong>Courses:</strong> Designing Functional Programs (Advanced Level), Calculus 2, Linear Algebra 1.</li>
+      </ul>
+    </article>
+
+    <article class="entry">
+      <div class="entry-head">
+        <h3 class="entry-title">Awards</h3>
+      </div>
+      <ul class="award-list">
+        <li>
+          <span class="award-name">ChessHacks Waterloo 2025</span>
+          <span class="award-detail">Pufferfish Chess Engine, <strong>3rd Place</strong>.</span>
+        </li>
+        <li>
+          <span class="award-name">American Mathematics Olympiad</span>
+          <span class="award-detail">Silver Medal, National 7th and Global 269th (2024). Bronze Medal (2025).</span>
+        </li>
+        <li>
+          <span class="award-name">International STEM Olympiad</span>
+          <span class="award-detail">Mathematics Gold Medal, Global 12th (2024). Global 14th (2023).</span>
+        </li>
+        <li>
+          <span class="award-name">UWaterloo Math Contests</span>
+          <span class="award-detail">Fermat 2024 Honor Roll and Distinction. Cayley 2023 Distinction.</span>
+        </li>
+      </ul>
+    </article>
+  </section>
+
+  <section class="section" id="skills">
+    <h2 class="section-title">Skills</h2>
+    <article class="entry">
+      <p class="skill-row"><span class="skill-label">Languages</span></p>
+      <ul class="chips">
+        <li>Python</li><li>Racket / Lisp</li><li>C</li><li>C++</li>
+      </ul>
+      <p class="skill-row"><span class="skill-label">Technical</span></p>
+      <ul class="chips">
+        <li>Machine Learning</li><li>Robotics</li><li>PyTorch</li><li>ROS</li><li>FastAPI</li>
+        <li>BigQuery</li><li>Apache Flink</li><li>dbt</li><li>Airflow</li><li>Docker</li>
+        <li>React</li><li>GCP</li><li>SolidWorks</li>
+      </ul>
+    </article>
+  </section>
+
+  <section class="section" id="resume">
+    <h2 class="section-title">Resume</h2>
+    <article class="entry">
+      <div class="resume-head">
+        <div>
+          <h3 class="entry-title">Everything above, on two pages</h3>
+          <p class="entry-meta">PDF, 120 KB</p>
+        </div>
+      </div>
+      <div class="resume-actions">
+        <a class="btn btn-primary" href="assets/cv/Emre-Batu-Atakan-Resume.pdf" download>Download PDF</a>
+        <button class="btn" type="button" id="resume-toggle" aria-expanded="false" aria-controls="resume-viewer">
+          View inline
+        </button>
+        <a class="btn btn-quiet" href="assets/cv/Emre-Batu-Atakan-Resume.pdf" target="_blank" rel="noopener">Open in new tab</a>
+      </div>
+      <div class="resume-viewer" id="resume-viewer" hidden>
+        <iframe src="assets/cv/Emre-Batu-Atakan-Resume.pdf" title="Emre Batu Atakan resume"></iframe>
+        <p class="resume-fallback">
+          Can't see the resume? <a href="assets/cv/Emre-Batu-Atakan-Resume.pdf" download>Download the PDF instead.</a>
+        </p>
+      </div>
+    </article>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <p class="footer-name">Emre Batu Atakan</p>
+    <ul class="footer-links">
+      <li><a href="mailto:e.batuatakan@gmail.com">e.batuatakan@gmail.com</a></li>
+      <li><a href="https://github.com/EmreBatuAtakan" rel="me noopener" target="_blank">GitHub</a></li>
+      <li><a href="https://www.linkedin.com/in/emre-batu-atakan-937887244/" rel="me noopener" target="_blank">LinkedIn</a></li>
+      <li><a href="assets/cv/Emre-Batu-Atakan-Resume.pdf" download>Resume</a></li>
+    </ul>
+  </div>
+</footer>
+
+<div class="lightbox" id="lightbox" hidden>
+  <button class="lightbox-close" type="button" aria-label="Close">&times;</button>
+  <button class="lightbox-prev" type="button" aria-label="Previous image">&#8249;</button>
+  <img id="lightbox-img" src="" alt="">
+  <button class="lightbox-next" type="button" aria-label="Next image">&#8250;</button>
+</div>
+
+<script src="assets/js/site.js"></script>
+</body>
+</html>
