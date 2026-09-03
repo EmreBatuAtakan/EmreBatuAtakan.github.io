@@ -61,9 +61,9 @@
     <h1>Emre Batu Atakan</h1>
     <p class="lede">
       Computer Science student at the University of Waterloo. I work on machine learning
-      systems and the data infrastructure around them. Most recently a distributed shop
-      analysis pipeline at Shopify, and visuomotor robot policies with a research team
-      on campus.
+      systems and the data infrastructure around them. Currently leading visuomotor robot
+      policy research on campus, and previously a distributed shop analysis pipeline
+      at Shopify.
     </p>
     <div class="hero-links">
       <a href="mailto:e.batuatakan@gmail.com">Email</a>
@@ -76,6 +76,28 @@
 
   <section class="section" id="experience">
     <h2 class="section-title">Experience</h2>
+
+    <article class="entry">
+      <div class="entry-head">
+        <h3 class="entry-title">University of Waterloo <span class="entry-role">Robotics ML Research Lead</span></h3>
+        <p class="entry-meta">June 2026 to present</p>
+      </div>
+      <p class="sub-lede">
+        Co-leading an 8-person research team developing end-to-end visuomotor policies, mentored by
+        Generalist's Research Scientist.
+      </p>
+      <ul class="bullets">
+        <li>Designed and executed controlled experiments comparing DINOv3-Transformer, CNN/MLP, and pretrained ConvNeXt behavior-cloning policies, analyzing the gap between offline training loss and closed-loop task performance.</li>
+        <li>Identified that the larger Transformer policy was memorizing demonstrations and generalizing poorly, which motivated a smaller CNN/MLP policy that improved randomized pick-and-place success from approximately <strong>30% to 99.8%</strong>.</li>
+        <li>Validated the selected policy over <strong>2,000+ randomized closed-loop rollouts</strong> during a multi-hour live demonstration, observing only <strong>four failures</strong> and confirming readiness for hardware deployment.</li>
+        <li>Built reproducible A100/H100 training infrastructure with PyTorch, Slurm, EMA checkpoints, and resumable jobs, and increased training throughput <strong>9x</strong> by caching vision-encoder embeddings.</li>
+        <li>Built and validated an end-to-end MuJoCo and PyTorch training and evaluation stack spanning data collection, model training, W&amp;B experiment tracking, dashboards, logging, and reproducible closed-loop benchmarking.</li>
+        <li>Ran hyperparameter sweeps over observation windows, action-history lengths, action-chunk horizons, auxiliary localization losses, dataset variants, and random seeds. Tracked experiments in W&amp;B and evaluated checkpoints on identical seeded rollouts.</li>
+        <li>Developed an asynchronous closed-loop inference loop (model, sim, control) on MuJoCo running <strong>100 Hz command execution against a 10 Hz inference rate</strong>, and tested the interactions between model latency, observation sampling, and replanning on commodity hardware.</li>
+        <li>Operated parallel data-collection jobs and curated 13 hours of synchronized pick-and-place demonstrations. Launched and monitored Slurm training and evaluation workloads on Digital Research Alliance of Canada A100/H100 systems.</li>
+      </ul>
+      <p class="stack"><span class="stack-label">Stack</span> PyTorch, MuJoCo, ROS, W&amp;B, Slurm, A100/H100</p>
+    </article>
 
     <article class="entry">
       <div class="entry-head">
@@ -98,35 +120,19 @@
       </div>
 
       <div class="workstream">
-        <h4 class="sub-title">AI Slackbot Evaluation Framework and Analytics Dashboard</h4>
+        <h4 class="sub-title">River: AI Agent Evaluation Framework and Analytics Dashboard</h4>
+        <p class="sub-lede">
+          River is Shopify's company-wide, Slack-native AI coding agent, co-authoring
+          <strong>1 in 8 merged PRs</strong>.
+        </p>
         <ul class="bullets">
-          <li>Designed and built an A/B testing framework for comparing AI Slackbot skill configurations side by side. It runs the same prompts against different configurations, scores them with LLM judges and deterministic assertions, and publishes structured results to a BigQuery schema for full reproducibility.</li>
-          <li>Built an analytics dashboard visualizing Slackbot usage data from BigQuery, including deep link filtering, keyboard navigation, insights with leaderboards, GitHub-style activity heatmaps, and pattern analytics covering time-of-day activity, tool error clustering, and channel leaderboards.</li>
+          <li>Designed and built a reproducible A/B evaluation framework for comparing River skill configurations side by side. It runs the same prompts against different configurations, scores them with LLM judges and deterministic assertions, and publishes structured results to a BigQuery schema for full reproducibility.</li>
+          <li>Built an analytics dashboard visualizing River adoption and usage data from BigQuery, including deep link filtering, keyboard navigation, insights with leaderboards, GitHub-style activity heatmaps, and pattern analytics covering time-of-day activity, recurring tool failures, and channel leaderboards.</li>
           <li>Fixed critical auth and publishing issues blocking evals from running inside production containers, which unblocked the team to run evals directly in production-like environments.</li>
         </ul>
       </div>
 
       <p class="stack"><span class="stack-label">Stack</span> Python, Java, Apache Flink, dbt, BigQuery, Airflow, FastAPI, aiohttp</p>
-    </article>
-
-    <article class="entry">
-      <div class="entry-head">
-        <h3 class="entry-title">University of Waterloo <span class="entry-role">Robotics Research</span></h3>
-        <p class="entry-meta">June 2026 to present</p>
-      </div>
-      <p class="sub-lede">
-        Leading an 8-person research team developing end-to-end visuomotor policies, mentored by
-        Generalist's Research Scientist.
-      </p>
-      <ul class="bullets">
-        <li>Designed and executed controlled experiments comparing DINOv3-Transformer, CNN/MLP, and pretrained ConvNeXt behavior-cloning policies, analyzing the gap between offline training loss and closed-loop task performance.</li>
-        <li>Identified that the larger Transformer policy was memorizing demonstrations and generalizing poorly, which motivated a smaller CNN/MLP policy that improved randomized pick-and-place success from approximately <strong>30% to 99.8%</strong>.</li>
-        <li>Validated the selected policy over <strong>2,000+ randomized closed-loop rollouts</strong> during a multi-hour live demonstration, observing only <strong>four failures</strong> and confirming readiness for hardware deployment.</li>
-        <li>Ran hyperparameter sweeps over observation windows, action-history lengths, action-chunk horizons, auxiliary localization losses, dataset variants, and random seeds. Tracked experiments in W&amp;B and evaluated checkpoints on identical seeded rollouts.</li>
-        <li>Integrated trained checkpoints into the asynchronous inference loop and tested interactions between model latency, observation sampling, replanning, and 100 Hz command execution on commodity hardware.</li>
-        <li>Operated parallel data-collection jobs and curated 13 hours of synchronized pick-and-place demonstrations. Launched and monitored SLURM training and evaluation workloads on Digital Research Alliance of Canada A100/H100 systems.</li>
-      </ul>
-      <p class="stack"><span class="stack-label">Stack</span> PyTorch, ROS, W&amp;B, SLURM, A100/H100</p>
     </article>
 
     <article class="entry">
@@ -279,13 +285,17 @@
     <article class="entry">
       <p class="skill-row"><span class="skill-label">Languages</span></p>
       <ul class="chips">
-        <li>Python</li><li>Racket / Lisp</li><li>C</li><li>C++</li>
+        <li>Python</li><li>C++</li><li>C</li><li>Java</li>
       </ul>
-      <p class="skill-row"><span class="skill-label">Technical</span></p>
+      <p class="skill-row"><span class="skill-label">ML and Robotics</span></p>
       <ul class="chips">
-        <li>Machine Learning</li><li>Robotics</li><li>PyTorch</li><li>ROS</li><li>FastAPI</li>
-        <li>BigQuery</li><li>Apache Flink</li><li>dbt</li><li>Airflow</li><li>Docker</li>
-        <li>React</li><li>GCP</li><li>SolidWorks</li>
+        <li>PyTorch</li><li>MuJoCo</li><li>ROS</li><li>W&amp;B</li><li>Whisper</li>
+        <li>SolidWorks</li>
+      </ul>
+      <p class="skill-row"><span class="skill-label">Systems and Data</span></p>
+      <ul class="chips">
+        <li>Slurm</li><li>Docker</li><li>FastAPI</li><li>Apache Flink</li><li>Airflow</li>
+        <li>dbt</li><li>BigQuery</li><li>GCP</li>
       </ul>
     </article>
   </section>
@@ -295,8 +305,8 @@
     <article class="entry">
       <div class="resume-head">
         <div>
-          <h3 class="entry-title">Everything above, on two pages</h3>
-          <p class="entry-meta">PDF, 120 KB</p>
+          <h3 class="entry-title">Everything above, on one page</h3>
+          <p class="entry-meta">PDF, 128 KB</p>
         </div>
       </div>
       <div class="resume-actions">
