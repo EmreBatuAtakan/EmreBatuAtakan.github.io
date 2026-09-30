@@ -24,6 +24,6 @@ python3 -m http.server 4001
 
 ## Updating the resume
 
-Replace `assets/cv/Emre-Batu-Atakan-Resume.pdf` with the new file, keeping the
+Replace `assets/cv/Batu-Atakan-Resume.pdf` with the new file, keeping the
 same name so the links on the page keep working, then update any text in
 `index.html` that changed.
